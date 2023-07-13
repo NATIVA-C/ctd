@@ -1,0 +1,11 @@
+{
+	"name": "xpack-default",
+	"enabled": false,
+	"recipe": "http-proxy",
+	"bind": 9102,
+	"settings": {
+		"target": "http://192.168.11.173:9200",
+		"username": "elastic",
+		"password": "changeme"
+	}
+}

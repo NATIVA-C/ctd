@@ -1,0 +1,52 @@
+![ExamTopics Logo](https://www.examtopics.com/assets/images/et/ExamTopics-Logo-Smaller.png) - Expert Verified, Online, **Free**.
+
+[ Custom View Settings](https://www.examtopics.com/exams/amazon/ans-c00/custom-view/)
+
+## Topic 1 - Single Topic
+
+Question #1*Topic 1*
+
+
+¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
+Question #1*Topic 1*
+
+Your organization's corporate website must be available on www.acme.com and acme.com.
+How should you configure Amazon Route 53 to meet this requirement?
+
+- A. Configure acme.com with an ALIAS record targeting the ELB. www.acme.com with an ALIAS record targeting the ELB.
+- B. Configure acme.com with an A record targeting the ELB. www.acme.com with a CNAME record targeting the acme.com record.
+- C. Configure acme.com with a CNAME record targeting the ELB. www.acme.com with a CNAME record targeting the acme.com record.
+- D. Configure acme.com using a second ALIAS record with the ELB target. www.acme.com using a PTR record with the acme.com record target.
+
+**Correct Answer:** *A*
+
+*Community vote distribution*
+
+A (100%)
+
+
+
+Question #2*Topic 1*
+¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
+Question #2*Topic 1*
+
+You are building an application in AWS that requires Amazon Elastic MapReduce (Amazon EMR). The application needs to resolve hostnames in your internal, on-premises Active Directory domain. You update your DHCP Options Set in the VPC to point to a pair of Active Directory integrated DNS servers running in your
+VPC.
+Which action is required to support a successful Amazon EMR cluster launch?
+
+- A. Add a conditional forwarder to the Amazon-provided DNS server.
+- B. Enable seamless domain join for the Amazon EMR cluster.
+- C. Launch an AD connector for the internal domain.
+- D. Configure an Amazon Route 53 private zone for the EMR cluster.
+
+**Correct Answer:** *B*
+References:
+https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/
+
+*Community vote distribution*
+
+A (100%)
+
+
+
+Question #3*Topic 1*
