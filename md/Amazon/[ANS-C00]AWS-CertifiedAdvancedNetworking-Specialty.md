@@ -1926,3 +1926,1070 @@ What is the MOST cost-effective solution that meets these requirements?
 
 C (100%)
 
+Question #101Topic 1
+The Security department has mandated that all outbound traffic from a VPC toward an on-premises datacenter must go through a security appliance that runs on an Amazon EC2 instance.
+Which of the following maximizes network performance on AWS? (Choose two.)
+A. Support for the enhanced networking drivers
+B. Support for sending traffic over the Direct Connect connection
+C. The instance sizes and families supported by the security appliance
+D. Support for placement groups within the VPC
+E. Security appliance support for multiple elastic network interfaces
+Correct Answer: BC
+Community vote distribution
+AC (100%)
+
+Question #102Topic 1
+A Network Engineer needs to be automatically notified when a certain TCP port is accessed on a fleet of Amazon EC2 instances running in an Amazon VPC.
+Which of the following is the MOST reliable solution?
+A. Create an inbound rule in the VPC's network ACL that matches the TCP port. Create an Amazon CloudWatch alarm on the NetworkPackets metric for the ACL that uses Amazon SNS to notify the Administrator when the metric is greater than zero.
+B. Install intrusion detection software on each Amazon EC2 instance and configure it to use the AWS CLI to notify the Administrator with Amazon SNS each time the TCP port is accessed.
+C. Create VPC Flow Logs that write to Amazon CloudWatch Logs, with a metric filter matching connections on the required port. Create a CloudWatch alarm on the resulting metric that uses Amazon SNS to notify the Administrator when the metric is greater than zero.
+D. Install intrusion detection software on each Amazon EC2 instance and configure it to use the AWS CLI to publish to a custom Amazon CloudWatch metric each time the TCP port is accessed. Create a CloudWatch alarm on the resulting metric that uses Amazon SNS to notify the Administrator when the metric is greater than zero.
+Correct Answer: A
+Community vote distribution
+C (100%)
+
+Question #103Topic 1
+A network engineer deploys an application in a private subnet in a VPC that connects to many external video feed providers using RTMP over the internet. A NAT gateway has been deployed in a public subnet and is working as expected. From the Amazon EC2 instance, the application is able to connect to all feed providers except one, which hangs when connecting. Manually testing a connection from an Amazon EC2 instance in the public subnet to the problem feed indicates that the feed works as expected.
+What is causing this issue?
+A. The NAT gateway does not support fragmented packets.
+B. The internet gateway only supports an MTU of 1500 bytes.
+C. An Amazon EC2 instance expects to communicate with an MTU of 9001.
+D. The security group on the instances does not allow PMTUD.
+Correct Answer: D
+Community vote distribution
+A (100%)
+
+Question #104Topic 1
+A company has an application running in an Amazon VPC that must be able to communicate with on-premises resources in a data center. Network traffic between
+AWS and the data center will initially be minimal, but will increase to more than 10 Gbps over the next few months. The company's goal is to launch the application as quickly as possible.
+The network engineer has been asked to design a hybrid IT connectivity solution.
+What should be done to meet these requirements?
+A. Submit a 1 Gbps AWS Direct Connect connection request, then increase the number of Direct Connect connections, as needed.
+B. Allocate elastic IPs to Amazon EC2 instances for temporary access to on-premises resources, then provision AWS VPN connections between an Amazon VPC and the data center.
+C. Provision an AWS VPN connection between an Amazon VPC and the data center, then submit an AWS Direct Connect connection request. Later, cut over from the VPN connection to one or more Direct Connect connections, as needed.
+D. Provision a 100 Mbps AWS Direct Connect connection between an Amazon VPC and the data center, then submit a Direct Connect connection request. Later, cut over from the hosted connection to one or more Direct Connect connections, as needed.
+Correct Answer: B
+Community vote distribution
+C (100%)
+
+Question #105Topic 1
+A company has recently established an AWS Direct Connect connection from its on-premises data center to AWS. A Network Engineer has blocked all traffic destined for Amazon S3 over the company's gateway to the internet from its on-premises firewall. S3 traffic should only traverse the Direct Connect connection.
+Currently, no one in the on-premises data center can access Amazon S3.
+Which solution will resolve this connectivity issue?
+A. Configure a private virtual interface on the Direct Connect connection. Update the on-premises routing tables to choose Direct Connect as the preferred next hop for traffic destined for Amazon S3.
+B. Establish an S3 VPC endpoint for the company's Amazon VPC. Configure a private virtual interface on the Direct Connect connection. Update the on-premises routing tables to choose Direct Connect as the preferred next hop.
+C. Configure a public virtual interface on the Direct Connect connection. Update the on-premises routing tables to choose Direct Connect as the preferred next hop for traffic destined for Amazon S3.
+D. Configure a public virtual interface on the Direct Connect connection. Establish an AWS managed VPN over the connection. Update the on-premises routing tables to choose the VPN connection as the preferred next hop.
+Correct Answer: A
+Community vote distribution
+C (83%)
+B (17%)
+
+Question #106Topic 1
+A company provisions an AWS Direct Connect connection to permit access to Amazon EC2 resources in several Amazon VPCs and to data stored in private
+Amazon S3 buckets. The Network Engineer needs to configure the company's on-premises router for this Direct Connect connection.
+Which of the following actions will require the LEAST amount of configuration overhead on the customer router?
+A. Configure private virtual interfaces for the VPC resources and for Amazon S3.
+B. Configure private virtual interfaces for the VPC resources and a public virtual interface for Amazon S3.
+C. Configure a private virtual interface to a Direct Connect gateway for the VPC resources and for Amazon S3.
+D. Configure a private virtual interface to a Direct Connect gateway for the VPC resources and a public virtual interface for Amazon S3.
+Correct Answer: A
+Community vote distribution
+D (75%)
+B (25%)
+
+Question #107Topic 1
+A company has two redundant AWS Direct Connect connections to a VPC. The VPC is configured using BGP metrics so that one Direct Connect connection is used as the primary traffic path. The company wants the primary Direct Connect connection to fail to the secondary in less than one second.
+What should be done to meet this requirement?
+A. Configure BGP on the company's router with a keep-alive to 300 ms and the BGP hold timer to 900 ms.
+B. Enable Bidirectional Forwarding Detection (BFD) on the company's router with a detection minimum interval of 300 ms and a BFD liveness detection multiplier of 3.
+C. Enable Dead Peer Detection (DPD) on the company's router with a detection minimum interval of 300 ms and a DPD liveliness detection multiplier of 3.
+D. Enable Bidirectional Forwarding Detection (BFD) echo mode on the company's router and disable sending the Internet Control Message Protocol (ICMP) IP packet requests.
+Correct Answer: B
+Reference:
+https://aws.amazon.com/directconnect/faqs/
+
+Question #108Topic 1
+A company's network engineering team is solely responsible for deploying VPC infrastructure using AWS CloudFormation. The company wants to give its developers the ability to launch applications using CloudFormation templates so that subnets can be created using available CIDR ranges.
+What should be done to meet these requirements?
+A. Create a CloudFormation template with Amazon EC2 resources that rely on cfn-init and cfn-signals to inform the stack of available CIDR ranges.
+B. Create a CloudFormation template with a custom resource that analyzes traffic activity in VPC Flow Logs and reports on available CIDR ranges.
+C. Create a CloudFormation template that references the Fn::Cidr intrinsic function within a subnet resource to select an available CIDR range.
+D. Create a CloudFormation template with a custom resource that uses AWS Lambda and Amazon DynamoDB to manage available CIDR ranges.
+Correct Answer: C
+Community vote distribution
+C (67%)
+D (33%)
+
+Question #109Topic 1
+A company's web application is deployed on Amazon EC2 instances behind a public Application Load Balancer. The application flags malicious requests and uses an AWS Lambda function to add the offending IP addresses to the network ACL to block any further requests for 24 hours. Recently, the application has been receiving more malicious requests, which causes the network ACL to reach its limit of allowed entries.
+Which action should be taken to block more IP addresses, without compromising the existing security requirements?
+A. Update the AWS Lambda function to remove blocked entries from the network ACL after 2 hours.
+B. Update the AWS Lambda function to block malicious IPs in security groups rather than the network ACL.
+C. Update the AWS Lambda function to block malicious IPs in AWS WAF attached to the Application Load Balancer.
+D. Update the AWS Lambda function to add an additional network ACL to the subnets once the limit for the previous ones has been reached.
+Correct Answer: D
+Community vote distribution
+C (100%)
+
+Question #110Topic 1
+A company is using AWS to host all of its applications. Each application is isolated in its own Amazon VPC. Different environments such as Development, Test, and Production are also isolated in their own VPCs. The network engineer needs to automate VPC creation to enforce the company's network and security standards. Additionally, the CIDR range used in each VPC needs to be unique.
+Which solution meets all of these requirements?
+A. Use AWS CloudFormation to deploy the VPC infrastructure and a custom resource to request a CIDR range from an external IP address management (IPAM) service.
+B. Use AWS OpsWorks to deploy the VPC infrastructure and a custom resource to request a CIDR range from an external IP address management (IPAM) service.
+C. Use the VPC wizard in the AWS Management Console. Type in the CIDR blocks for the VPC and subnets.
+D. Create the VPCs using AWS CLI and use the dry-run flag to validate if the current CIDR range is in use.
+Correct Answer: A
+Community vote distribution
+A (100%)
+
+Question #111Topic 1
+You can turn on the AWS Config service from the AWS CLI by running the subscribe command and passing as parameters a valid IAM role, SNS topic, and ____.
+A. EBS volume
+B. EC2 instance
+C. S3 bucket
+D. Kinesis stream
+Correct Answer: C
+You can use the AWS CLI to turn on AWS Config. All it takes is the subscribe command and a few additional parameters. The parameters are -s3-bucket, which specifies the S3 bucket to which AWS Config data will be saved, -sns-topic, which specifies to which SNS topic messages from AWS Config will be sent, and - iam-role, which is an IAM role containing appropriate permissions for AWS Config to access the resources it monitors.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/gs-cli-subscribe.html
+
+Question #112Topic 1
+You would like to automate the monitoring of changes in the configurations of your AWS resources and respond programmatically to configurations of only a certain type. To do this, you could use Amazon ____ as the endpoint for the Amazon SNS topics that generate messages from AWS Config.
+A. Kinesis
+B. Simple Email Service (SES)
+C. Simple Storage Service (S3)
+D. Simple Queue Service (SQS)
+Correct Answer: D
+AWS Config uses Amazon Simple Notification Service (SNS) to send you notifications every time a supported AWS resource is created, updated, or otherwise modified as a result of user API activity. However, you might be interested in only certain resource configuration changes. For example, you might consider it critical to know when someone modifies the configuration of a security group, but not need to know every time there is a change to tags on your Amazon EC2 instances. Or, you might want to write a program that performs specific actions when specific resources are updated. For example, you might want to start a certain workflow when a security group configuration is changed. If you want to programmatically consume the data from AWS Config in these or other ways, use an Amazon Simple Queue Service queue as the notification endpoint for Amazon SNS.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/monitor-resource-changes.html
+
+Question #113Topic 1
+You can use the ____ command of the AWS Config service CLI to see the compliance state for each AWS resource of a specific type.
+A. describe-compliance-by-resource
+B. get-compliance-details-by-config-rule
+C. describe-compliance-by-config-rule
+D. get-compliance-details-by-resource
+Correct Answer: A
+You can use the AWS Config console, AWS CLI, or AWS Config API to view the compliance state of your rules and resources. The describe-compliance-by- resource command of the AWS Config CLI to see the compliance state for each AWS resource of a specific type. This is distinct from the describe-compliance-by- config-rule command, which gives the compliance state of each rule in AWS Config .
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html
+
+Question #114Topic 1
+When an AWS Config rule is triggered a JSON object known as an AWS Config Event is created. This object contains another JSON string in its ____ parameter, which describes the event that triggered the rule.
+A. resultToken
+B. eventLeftScope
+C. invokingEvent
+D. configRuleName
+Correct Answer: C
+The JSON object for an AWS Config event contains an invoking Event attribute, which describes the event that triggers the evaluation for a rule. If the event is published in response to a resource configuration change, the value for this attribute is a string that contains a JSON configuration Item or a configuration Item
+Summary (for oversized configuration items). The configuration item represents the state of the resource at the moment that AWS Config detected the change. If the event is published for a periodic evaluation, the value is a string that contains a JSON object. The object includes information about the evaluation that was triggered. For each type of event, a function must parse the string with a JSON parser to be able to evaluate its contents.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_exa mple-events.html
+
+Question #115Topic 1
+When an AWS Config rule is triggered a JSON object known as an AWS Config Event is created. This object contains a(n) ____ attribute, which is a JSON- formatted set of key/value pairs the receiving AWS Lambda function processes as part of its evaluation logic.
+A. inputParameters
+B. invokingEvent
+C. ruleConfiguration
+D. mappingTemplate
+Correct Answer: A
+The JSON object for an AWS Config event contains a ruleParameters attribute, which is a set of key/value pairs that the AWS Lambda function receiving the event processes as part of its evaluation logic. You define parameters when you use the AWS Config console to create a custom rule. You can also define parameters with the InputParameters attribute in the PutConfigRule AWS Config API request or the put-config-rule AWS CLI command. The JSON code for the parameters is contained within a string, so a function must parse the string with a JSON parser to be able to evaluate its contents
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_exa mple-events.html
+
+Question #116Topic 1
+When using AWS Config, which two items are stored on S3 as a part of its operation?
+A. Configuration Items and Configuration History
+B. Configuration Recorder and Configuration Snapshots
+C. Configuration History and Configuration Snapshots
+D. Configuration Snapshots and Configuration Streams
+Correct Answer: C
+S3 is used to store the Configuration History files and any Configuration Snapshots of your data within a single bucket, which is defined within the Configuration
+Recorder. You can get AWS Config to create a new bucket for you and select an existing bucket. If you have multiple AWS accounts you may want to aggregate your Configuration History and Snapshot files into the same S3 Bucket for your primary account, just be aware that this can be achieved. However, you will need to grant write access for the service principal (config.amazonaws.com) in your other accounts write access to the S3 bucket.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-items
+
+Question #117Topic 1
+You can use the ____ page of the AWS Config console to look up resources that AWS Config has discovered, including deleted resources and resources that are not currently being recorded.
+A. snapshot listing
+B. configuration history
+C. resource inventory
+D. resource database
+Correct Answer: C
+You can use the AWS Config console, AWS CLI, and AWS Config API to look up the resources that AWS Config has taken an inventory of, or discovered, including deleted resources and resources that AWS Config is not currently recording. AWS Config discovers supported resource types only. You can use the
+AWS Config console in the AWS Management console to look up these resources. The Resource Inventory page lets you perform this search.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/looking-up-discovered-resources.html
+
+Question #118Topic 1
+An AWS Config rule can be set to be evaluated if a certain set of resources undergoes a configuration change. The set of resources to which the rule applies can be restricted by the rule's ____, which can include a combination of a resource type and a resource ID, for example.
+A. trigger
+B. domain
+C. manifest
+D. scope
+Correct Answer: D
+When you add an AWS Config rule to your account, you can specify when you want AWS Config to run the rule; this is called a trigger. AWS Config evaluates your resource configurations against the rule when the trigger occurs. You choose which resources trigger the evaluation by defining the rule's scope. The scope can include the following:
+
+One or more resource types -
+A combination of a resource type and a resource ID A combination of a tag key and value.
+When any recorded resource is created, updated, or deleted AWS Config runs the evaluation when it detects a change to a resource that matches the rule's scope. You can use the scope to constrain which resources trigger evaluations. Otherwise, evaluations are triggered when any recorded resource changes.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html
+
+Question #119Topic 1
+Which other AWS service is used to track `Related Events' within the Configuration Item?
+A. AWS WAF
+B. SQS
+C. AWS CloudTrail
+D. S3
+Correct Answer: C
+`Related Events' displays the AWS CloudTrail event ID that is related to the change that triggered the creation of the CI. There is a new CI made for every change made against a resource. As a result a different CloudTrail event IDs will be created. This allows you you to deep-dive into who or what and when made the change that triggered this CI. A great feature allowing for some great analysis to be taken, specifically when this affects security resources.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#config-item-table
+
+Question #120Topic 1
+Non-compliant resources identified through the use of AWS Config Rules are automatically removed from operational service.
+A. It depends on the Rule configuration
+B. Only if it remains non-compliant for more than 6 hours
+C. True
+D. False
+Correct Answer: D
+Each time a change is made to one of your supported resources, AWS config will check its compliance against any Config Rules that you have in place. If there is a violation against these rules then AWS Config will send a message to the Configuration Stream via SNS and the resource will be marked as `noncompliant'.
+It's important to note that this does not mean the resource will be taken out of service or it will stop working. It will continue to operate exactly as it is with its new configuration. AWS Config simply alerts you that there is a violation and it's up to you to take the appropriate action.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html
+Community vote distribution
+A (100%)
+
+Question #121Topic 1
+Which element of AWS Config can be used to help maintain internal and external compliance controls?
+A. Configuration Item
+B. Configuration Recorder
+C. Configuration Streams
+D. Config Rules
+Correct Answer: D
+AWS Config allows you to utilise Config Rules to help you manage and organise this compliance which acts as an automatic resource compliance checker. When a change is made to a resource, AWS Config will check to see if the resource matches a rule, and if so it will check the compliance of that resource against the rule following the changes made.
+Reference:
+https://aws.amazon.com/config/
+
+Question #122Topic 1
+Which AWS service is used within an AWS Config Rule to perform the logic evaluation of that rule?
+A. Inspector
+B. WAF
+C. Lambda
+D. SWF
+Correct Answer: C
+AWS Config Rules are a great way to help you enforce specific compliance controls and checks across your resources and allows for you to adopt an `ideal' deployment specification for each of your resource types. Each Rule is simply a Lambda function that when called upon evaluates the resource and carries out some simply logic to determine the compliance result with the rule.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_nodejs-sample.html
+
+Question #123Topic 1
+AWS Config flags a resource as ____ if a resource violates any conditions of an AWS Config rule that it evaluates on the resource in question.
+A. corrupted
+B. noncompliant
+C. invalid
+D. misconfigured
+Correct Answer: B
+Use AWS Config to evaluate the configuration settings of your AWS resources. You do this by creating AWS Config rules, which represent your ideal configuration settings. AWS Config provides customizable, predefined rules called managed rules to help you get started. You can also create your own custom rules. While
+AWS Config continuously tracks the configuration changes that occur among your resources, it checks whether these changes violate any of the conditions in your rules. If a resource violates a rule, AWS Config flags the resource and the rule as noncompliant.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html
+
+Question #124Topic 1
+Each custom AWS Config rule you create must be associated with a(n) AWS ____, which contains the logic that evaluates whether your AWS resources comply with the rule.
+A. Lambda function
+B. Configuration trigger
+C. EC2 instance
+D. S3 bucket
+Correct Answer: A
+You can develop custom AWS Config rules to be evaluated by associating each of them with an AWS Lambda function, which contains the logic that evaluates whether your AWS resources comply with the rule. You associate this function with your rule, and the rule invokes the function either in response to configuration changes or periodically. The function then evaluates whether your resources comply with your rule, and sends its evaluation results to AWS Config.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html
+
+Question #125Topic 1
+A user is trying to understand the detailed CloudWatch monitoring concept. Which of the below mentioned services does not provide detailed monitoring with
+CloudWatch?
+A. AWS Route53
+B. AWS EMR
+C. AWS ELB
+D. AWS RDS
+Correct Answer: B
+CloudWatch is used to monitor AWS as well as the custom services. It provides either basic or detailed monitoring for the supported AWS products. In basic monitoring, a service sends data points to CloudWatch every five minutes, while in detailed monitoring a service sends data points to CloudWatch every minute.
+Services, such as RDS, EC2, Auto Scaling, ELB, and Route 53 can provide the monitoring data every minute.
+Reference:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/supported_services.html
+
+Question #126Topic 1
+You can use the ____ command of the AWS Config service CLI to see the compliance state of each of your rules.
+A. get-compliance-details-by-resource
+B. describe-compliance-by-config-rule
+C. get-compliance-details-by-config-rule
+D. describe-compliance-by-resource
+Correct Answer: B
+You can use the describe-compliance-by-config-rule command of the AWS Config CLI to see the compliance state of each of your rules. For each rule that has a compliance type of NON_COMPLIANT, AWS Config returns the number of noncompliant resources for the CappedCount parameter.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html
+
+Question #127Topic 1
+You have several Amazon Glacier vaults you would like to monitor. How might you monitor those vaults?
+A. Create a custom AWS Config rule.
+B. Use an AWS master Config rule.
+C. Use an AWS managed Config rule.
+D. Create a KMS policy and attach it to your Amazon Glacier vault.
+Correct Answer: A
+AWS Config does not currently record Amazon Glacier resources; you must create a custom rule if you wish to monitor such a resource.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules_nodejs.html#creating-custom-rules-for-additional-resource-types
+
+Question #128Topic 1
+In order to change the name of the AWS Config ____, you must stop the configuration recorder, delete the current one, and create a new one with a new name, since there can only be one of these per AWS account.
+A. SNS topic
+B. configuration history
+C. delivery channel
+D. S3 bucket path
+Correct Answer: C
+As AWS Config continually records the changes that occur to your AWS resources, it sends notifications and updated configuration states through the delivery channel. You can manage the delivery channel to control where AWS Config sends configuration updates. You can have only one delivery channel per AWS account, and the delivery channel is required to use AWS Config. To change the delivery channel name, you must delete it and create a new delivery channel with the desired name. Before you can delete the delivery channel, you must temporarily stop the configuration recorder. The AWS Config console does not provide the option to delete the delivery channel, so you must use the AWS CLI, the AWS Config API, or one of the AWS SDKs.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/update-dc.html
+
+Question #129Topic 1
+Which of the following characters is not allowed while creating a Namespace for a CloudWatch metric?
+A. /
+B. :
+C. #
+D. @
+Correct Answer: D
+Namespace is a grouping or a container for a CloudWatch metric. The names must be valid XML characters, typically containing the alphanumeric characters "0-
+9A-Za-z" plus "."(period), "-" (hyphen), "_" (underscore), "/" (slash), "#" (hash), and ":" (colon). All AWS namespaces follow the convention AWS/<service>, such as AWS/EC2 and AWS/ELB.
+Reference:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html
+
+Question #130Topic 1
+You would like to ensure that all Amazon S3 buckets going forward, current and newly created ones, have logging enabled. What type of trigger(s) should you use?
+A. only a periodic trigger
+B. only a configuration change trigger
+C. both configuration change and periodic triggers
+D. only a transitioning trigger
+Correct Answer: B
+This case requires only a configuration change trigger because you only need to trigger when S3 buckets are created and changed. There is no time component to when the trigger needs to fire.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html
+Community vote distribution
+C (67%)
+B (33%)
+
+Question #131Topic 1
+You have many IAM users with the ability to create EC2 volumes. Most of the data your team works with is sensitive, so you would like to make sure all volumes are encrypted. How might you facilitate this requirement?
+A. Create an AWS KMS policy and attach it to all IAM users that can create EC2 volumes.
+B. Use AWS Config and create a rule that requires all volumes, upon creation, be encrypted.
+C. Use AWS Config to send out reminders to IAM users every time they create an EC2 volume.
+D. Set EC2 to notify creators to encrypt their EC2 volumes.
+Correct Answer: B
+AWS Config is used to evaluate the configuration settings of many AWS resources. When an EC2 volume in created, AWS Config can evaluate the volume against a rule that requires volumes to be encrypted. If the volume is not encrypted, AWS Config flags the volume and the rule as noncompliant.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html
+
+Question #132Topic 1
+You can use the ____ command of the AWS Config service CLI to see the compliance state of each resource that AWS Config evaluates for a specific rule.
+A. describe-compliance-by-resource
+B. describe-compliance-by-config-rule
+C. get-compliance-details-by-config-rule
+D. get-compliance-details-by-resource
+Correct Answer: C
+You can use the get-compliance-details-by-config-rule command of the AWS Config CLI to see the compliance state of each resource that AWS Config evaluates for a specific rule.
+Reference:
+http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_view-compliance.html
+
+Question #133Topic 1
+A user is running a batch process on EBS backed EC2 instances. The batch process launches few EC2 instances to process hadoop Map reduce jobs which can run between 50-600 minutes or sometimes for even more time. The user wants a configuration that can terminate the instance only when the process is completed. How can the user configure this with CloudWatch?
+A. Configure a job which terminates all instances after 600 minutes
+B. It is not possible to terminate instances automatically
+C. Set up the CloudWatch with Auto Scaling to terminate all the instances
+D. Configure the CloudWatch action to terminate the instance when the CPU utilization falls below 5%
+Correct Answer: D
+Amazon CloudWatch alarm watches a single metric over a time period that the user specifies and performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods. The user can setup an action which terminates the instances when their CPU utilization is below a certain threshold for a certain period of time. The EC2 action can either terminate or stop the instance as part of the EC2 action.
+Reference:
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/UsingAlarmActions.html
+
+Question #134Topic 1
+You need to create a subnet in a VPC that supports 14 hosts. You need to be as accurate as possible since you run a very large company. What CIDR should you use?
+A. /28
+B. /24
+C. /25
+D. /27
+Correct Answer: D
+/27 supports 27 hosts since AWS reserves 5 addresses. /25 supports 123 hosts, /28 supports 11, /24 supports 251.
+
+Question #135Topic 1
+You have a DX connection and a VPN connection as backup for your 10.0.0.0/16 network. You just received a letter indicating that the colocation provider hosting the DX connection will be undergoing maintenance soon. It is critical that you do not experience any downtime or latency during this period.
+What is the best course of action?
+A. Configure the VPN as a static VPN instead of dynamic.
+B. Configure AS_PATH Prepending on the DX connection to make it the less preferred path.
+C. Advertise 10.0.0.0/9 and 10.128.0.0/9 over your VPN connection.
+D. None of the above.
+Correct Answer: D
+A more specific route is the only way to force AWS to prefer a VPN connection over a DX connection. A /9 is not more specific than a /16.
+
+Question #136Topic 1
+You have two enhanced networking capable instances in a placement group. One with an Intel network interface and one with an ENA.
+What network speed will be achieved between the two?
+A. 10Gbps
+B. 20Gbps
+C. 5Gbps
+D. You cannot have different network interfaces in a placement group.
+Correct Answer: A
+10Gbps. The Intel interface has a max speed of 10 and the ENA is 20. The speed will be the lesser of the two.
+
+Question #137Topic 1
+Your company has placement groups in two different availability zones. There is a large project coming up and, although resilience is important, cost and speed are the most important factors. The servers in each placement group need to be able to achieve the highest speed possible.
+How can this be achieved?
+A. Create AMIs from all of the instances, terminate them, and deploy them all into one placement group.
+B. In the CLI, run the command "aws ec2 set-placement-group 1 " for all of the instances.
+C. Duplicate the VPC, peer the new VPC, create AMIs of the instances, terminate them, and redeploy them in two separate placement groups between the two VPCs.
+D. Peer the two placement groups using AWS PG Peering.
+Correct Answer: A
+There is no AWS PG Peering option, Duplicating the VPC does not align with the cost concern, there is no "aws ec2 set-placement-group" command.
+Community vote distribution
+C (100%)
+
+Question #138Topic 1
+Your network utilizes jumbo frames on its servers and your router. You are trying to access your AWS resources, and you are having issues with packet loss.
+What is the best solution?
+A. Remove the "Do not Fragment" flag on the packets.
+B. Lower the MTU for your network.
+C. Call AWS support.
+D. You will have to upgrade to Direct Connect.
+Correct Answer: A
+Remove the "Don't Fragment" Flag on your router. AWS will drop any data with an MTU of greater than 1500 if the "Do not Fragment" flag is set, so you need your router to indicate that data can be fragmented.
+Community vote distribution
+D (50%)
+A (50%)
+
+Question #139Topic 1
+You have two VPCs that you need to connect to an on-premises datacenter using VPNs. When you create the tunnels, you find that both tunnels use the same addresses. What two things can you do to overcome this? (Choose two.)
+A. Delete the VPN, create a "dummy VPN", recreate the VPN, then delete the "dummy" VPN.
+B. Delete your AWS account and create a new one since the VPN tunnel addresses are created from a hash of your account number and a proprietary algorithm.
+C. Create a VHF within you router for each network.
+D. Create a VRF within your router for each network.
+Correct Answer: AD
+
+Question #140Topic 1
+Your company just purchased a domain using another registrar and wants to use the same nameservers as your current domain hosted with AWS. How would this be achieved?
+A. Every domain must have different nameservers.
+B. In the API, create a Reusable Delegation Set.
+C. Import the domain to your account and it will automatically set the same nameservers.
+D. In the console, create a Reusable Delegation Set.
+Correct Answer: B
+You can't create a reusable delegation set in the console. AWS does not provide the same nameservers to new domains, but a reusable delegation set can be used with as many domains as you like.
+
+Question #141Topic 1
+Your company is connecting one data center with one router to several VPCs and needs to access them transitively. What should you do?
+A. Create a VPN to one VPC and peer the others.
+B. This is not possible.
+C. Use a transit VPC with a VPN running on one or more EC2 instances to route traffic between the VPCs.
+D. Just connect; VPCs are transitive in nature.
+Correct Answer: C
+VPCs are not transitive, so you will need a "transit VPN" in order to route between the VPCs.
+Community vote distribution
+C (100%)
+
+Question #142Topic 1
+Your AWS WorkSpaces users are unable to authenticate. What could be one reason for this?
+A. Your AD server is running Windows Server 2016
+B. Port 3389 is not open to your AD server.
+C. Port 389 is not open to your AD server.
+D. Your AD server is running Windows Server 2012 Core Edition.
+Correct Answer: C
+AD requires port 389.
+
+Question #143Topic 1
+You have just deployed a website that utilizes CloudFront, ELB, and S3 to serve content. When users access your site, they are seeing broken image links. You know you configured CloudFront to use cdn.yourdomain.com. What is the most likely reason why your users not seeing the images?
+A. There is no rule in your bucket policy allowing public access. [1]
+C. There is no record in Route 53 pointing cdn.yourdomain.com to the ALIAS.
+D. The users are using Internet Explorer.
+Correct Answer: C
+You must have a Route 53 record. You never want to give public access to your content bucket.
+
+Question #144Topic 1
+You are responsible for several EC2 instances deployed from Amazon AMIs that are required to upload information to an S3 bucket. This information must not traverse the public internet. You must also be able to update the instances. Which option is your best solution?
+A. An S3 endpoint and a NAT
+B. An S3 endpoint
+C. A VPN to the IP addresses specified in the AWS official S3 prefix list
+D. A NACL with the AWS prefix list added to it and a VPN.
+Correct Answer: B
+A NAT is not required as an S3 endpoint will allow an instance to update. C and D are not possible.
+Community vote distribution
+A (50%)
+B (50%)
+
+Question #145Topic 1
+Your company is building a new data center. You currently have an on-premises data center that accesses your single VPC via VPN. You need to provide access to your single VPC to your new data center. Since your new data center build is already over budget, you need to keep costs low.
+How should you accomplish this?
+A. Add a Private VIF and create a Direct Connect connection.
+B. Create a new Customer Gateway and add it to your VPN using a CloudHub infrastructure model.
+C. Add a Public VIF and create a Direct Connect connection.
+D. Create a new Virtual Gateway and add it to your VPN using a CloudHub infrastructure model.
+Correct Answer: B
+Create a new Customer Gateway. A Private VIF would work, but you want to keep costs low. A Public VIF is only for AWS specific resources, such as S3. A
+Virtual Gateway would be created if you were creating a new VPN connection in a new VPC. A Customer Gateway would allow you to add the new datacenter to your VPN.
+
+Question #146Topic 1
+You have a website hosted on EC2 that is not serving web pages. You have ensured that the server is running and the site is configured properly. What could be the problem?
+A. Your NACL does not allow port 80 outbound.
+B. Your NACL does not allow ports 1024 גˆ’ 65535 outbound.
+C. Your NACL does not allow ports 1024 גˆ’ 65535 inbound. D. Your security group does not allow outbound traffic.
+Correct Answer: B
+The ephemeral ports 1024 גˆ’ 65535 are required outbound for return traffic. For the server to access websites, those same ports need to be allowed inbound.
+
+Question #147Topic 1
+You are auditing an AWS infrastructure after you noticed some abnormal charges on the bill. You use AWS Config to monitor your changes. What else is required to find out who made the change?
+A. There is no information to find this. You will need to sign up for Config Premium.
+B. Use the eventID of the change and reference it with your Flow Logs.
+C. Use the eventId of the change and reference it with CloudTrail to find the culprit.
+D. Use the eventID of the change and reference it with CloudWatch to find the culprit.
+Correct Answer: C
+CloudTrail is for finding "who" performed an action.
+
+Question #148Topic 1
+Your organization has placed a project on hold and has stopped 30 public EC2 instances. These instances use instance store volumes and do not have custom
+AMIs associated. You are still being charged every month.
+What is the charge probably for?
+A. AWS charges for dormant accounts.
+B. You have Elastic IPs associated with those instances.
+C. There is a "stopped instance" fee that AWS charges every month.
+D. You are being charged for the EBS volumes.
+Correct Answer: B
+You have Elastic IPs associated with those instances. AWS charges for any unused Elastic IPs in your account.
+Community vote distribution
+B (100%)
+
+Question #149Topic 1
+You need to quickly view inbound traffic to an instance to determine why it isn't reaching the instance properly. What is the best tool for this?
+A. Wireshark
+B. CloudWatch
+C. CloudTrail
+D. Flow Logs
+Correct Answer: D
+CloudWatch only shows the amount of data in. Wireshark cannot see anything inside AWS infrastructure. You can only use it to view instance traffic.
+
+Question #150Topic 1
+Your company has just completed a transition to IPv6 and has deployed a website on a server. You were able to download software on the instance without an issue. This website is deployed using IPv6, but the public is not able to access it. What should you do to fix this problem?
+A. Add an internet gateway for the instance.
+B. Add an egress-only internet gateway.
+C. Add an inbound rule to your security group that allows inbound traffic on port 80 for ::/0.
+D. Add an inbound rule to your security group that allows inbound traffic on port 80 for 0.0.0.0/0.
+Correct Answer: C
+Your instance can reach the internet if it was able to download sofftware, so an IGW is not needed. 0.0.0.0/0 is for IPv4.
+
+Question #151Topic 1
+Your company has two DX locations. You need to configure one link as passive. What should you configure in your router to set that link as the passive link.
+A. Set a higher MED.
+B. Configure AS_PATH Prepending on the link.
+C. Advertise a network with a higher CIDR.
+D. Call your service provider and have the ASN changed for that link.
+Correct Answer: B
+You should configure AS_PATH prepending on the link. A higher CIDR is the same as a more specific prefix, which will make the link more preferred. A higher
+MED will make the path less preferred, but this is not the preferred method to accomplish this. Changing your ASN will not help. Configuring AS_PATH
+Prepending is the preferred method of AWS to configure an Active-Passive configuration with Direct Connect.
+Community vote distribution
+A (67%)
+B (33%)
+
+Question #152Topic 1
+You have just configured an Elastic Load Balancer. Assuming all settings are configured properly, about how long will it take an instance to become healthy with a
+6 second HealthCheck Interval, an unhealthy threshold of 5 and a healthy threshold of 10?
+A. 120 seconds
+B. 30 seconds
+C. 6 seconds
+D. 60 seconds
+Correct Answer: D
+60 seconds. 10 healthcheck successes with 6 second intervals.
+Community vote distribution
+D (100%)
+
+Question #153Topic 1
+Your company needs to directly update an S3 bucket that serves as a CloudFront origin with the most reliability possible. Your company also has a set of private
+EC2 servers that it needs to access with the same reliability. Which combination will provide the best solution?
+A. A Virtual Gateway and a Public VIF
+B. A Private VIF is all you need to access all AWS resources.
+C. A Hosted VIF and a Private VIF
+D. A Public VIF and a Private VIF
+Correct Answer: D
+The Public VIF will allow access to the S3 bucket, and the Private VIF will allow access to the EC2 instances.
+Community vote distribution
+D (100%)
+
+Question #154Topic 1
+You wish to have a sub-1G connection to AWS to save on costs. How can you achieve this?
+A. Just set your router to the speed you want and AWS will charge you based on the actual speed of the port.
+B. Contact AWS, they will put you in contact with a technical account manager who can help you get this setup.
+C. You can't. The only speeds available for Direct Connect are 1G and 10G.
+D. Contact an AWS partner, AWS does not provide sub-1G connection speeds.
+Correct Answer: D
+Sub-1G service is only available through AWS partners.
+Community vote distribution
+D (100%)
+
+Question #155Topic 1
+You have just peered two VPCs, and you need to improve performance for instances you plan on deploying. What are two steps you would take to do this?
+(Choose two.)
+A. Create two subnets in the same AZ and create a placement group.
+B. Set the MTU of your instances to 1500.
+C. Create two subnets in different AZs and create a placement group.
+D. Ensure you choose instances that use enhanced networking.
+Correct Answer: AD
+A placement group can only be deployed in the same AZ and is only useful with enhanced networking instances.
+
+Question #156Topic 1
+You have just deployed a website that utilizes CloudFront, ELB, and S3 to serve content. When users access your site, they are seeing broken image links. What is most likely the problem?
+A. There is no record in Route 53 pointing cdn.yourdomain.com to the CloudFront ALIAS.
+B. You need to create Origin Access Identity for CloudFront and add it to your bucket policy. [1]
+D. There is no rule in your bucket policy allowing public access.
+Correct Answer: B
+You must have an OAI if the bucket policy does not allow public access, which is bad practice.
+Community vote distribution
+B (100%)
+
+Question #157Topic 1
+You have a static VPN connecting your data center and your VPC. You currently have 50 routes added to your route table. You want to add more; how should you do this?
+A. 50 is the most you can have for any connection.
+B. Just add them, you have a maximum of 100 static routes per route table.
+C. Set up Direct Connect. A VPN will not support more routes.
+D. Convert your VPN to a dynamic VPN and use BGP.
+Correct Answer: D
+A dynamic routing table can support 100 routes. A static can only support 50 per IPv4 and 50 per IPv6. Direct Connect will work, but it would be more than you needed.
+Community vote distribution
+B (100%)
+
+Question #158Topic 1
+Your company needs an inexpensive solution to host their AD data in the cloud. They do not need all of the features of AD but do need to be able to use it with
+WorkSpaces. What is the best solution?
+A. AD Connector
+B. Hosted Microsoft AD
+C. Simple AD
+D. Deploy an AD server on an M3.large instance
+Correct Answer: C
+Simple AD is the best choice here. If authentication is all you need, it is the most inexpensive option for in-cloud directory.
+
+Question #159Topic 1
+You need to find the MTU used by another instance, but tracepath is not working. You know the instance you are trying to tracepath has open security group and
+NACL rules. Which protocol do you need to allow to access your instance to remedy this?
+A. Protocol 6: TCP
+B. Protocol 47: GRE
+C. Protocol 17: UDP
+D. Protocol 1: ICMP
+Correct Answer: D
+You need to allow Protocol 1, ICMP, to access your instance. tracepath specifically needs the "destination unreachable" feature of ICMP.
+Community vote distribution
+C (100%)
+
+Question #160Topic 1
+You are under a DDoS attack and you have added a deny all TCP rule to your NACL, but traffic is still coming. What did you do wrong?
+A. You configured the rule number to be too low.
+B. A NACL can't protect against a DDoS.
+C. The DDoS isn't a TCP attack.
+D. You need to add a deny rule outbound also since NACLs are stateful.
+Correct Answer: C
+The DDoS isn't a TCP attack (this time.) A DDoS can use several different protocols. NACLs are stateless. The lower the rule number, the higher the priority.
+
+Question #161Topic 1
+When configuring Active/Passive HA on VPN tunnels, choose the two best ways to configure this. (Choose two.)
+A. Keep both tunnels up.
+B. Configure AS_PATH prepending on one of the paths.
+C. Turn off one of the paths until you need it.
+D. Configure MED on one of the tunnels.
+Correct Answer: AB
+AWS prefers AS_PATH prepending and for a tunnel to provide true failover, it must always be on.
+Community vote distribution
+AD (100%)
+
+Question #162Topic 1
+Your company is working on a transition from IPv4 to IPv6 but is concerned about the security of having public IPv6 addresses attached to instances in a public network. They currently use a NAT to allow outbound traffic for instances. Outbound traffic is required for updates. What are two options to alleviate your company's concerns? (Choose two.)
+A. Remove any rules allowing ::/0 inbound in the security group.
+B. Block ::/0 inbound in the NACL.
+C. Create an egress-only internet gateway.
+D. Block 0.0.0.0/0 inbound in the NACL.
+Correct Answer: AC
+0.0.0.0/0 will only block IPv4, blocking ::/0 in the NACL will prevent return traffic and updates to the instances. An egress-only internet gateway or blocking ::/0 inbound in the security group will allow the instances to initiate outbound connections and receive the return traffic, while still preventing outside attackers from initiating connections to the instances.
+
+Question #163Topic 1
+You have two placement groups in a VPC. What communication speed can be expected between the two placement groups?
+A. 5Gbps
+B. 10Gbps
+C. 20Gbps
+D. You cannot communicate between two placement groups.
+Correct Answer: A
+5Gbps is the maximum speed for traffic outside of a placement group.
+Community vote distribution
+A (100%)
+
+Question #164Topic 1
+You have two Direct Connect connections and two VPN connections to your network. Site A is VPN 10.1.0.0/24 AS 65000 65000, Site B is VPN 10.1.0.252/30 AS
+65000, Site C is DX 10.0.0.0/8 AS 65000 and Site D is DX 10.0.0.0/16 AS 65000 65000 65000. Which site will AWS choose to reach your network?
+A. Site A: VPN 10.0.1.0/24 AS 65000 65000
+B. Site B: VPN 10.0.1.252/30 AS 65000 65000 65000
+C. Site C: DX 10.0.0.0/8 AS 65000
+D. Site D: DX 10.0.0.0/16
+Correct Answer: B
+Site B, the most specific prefix always wins.
+Community vote distribution
+B (100%)
+
+Question #165Topic 1
+You manage a website that uses a load balancer. You are noticing one of the servers is receiving more traffic than the other. What is probably the cause of this?
+A. An Elastic Load Balancer sends traffic based on server load. One server must be a larger instance.
+B. You have DNS latency routing set, so it is diverting traffic to a different instance.
+C. You have sticky sessions configured and there are several power users that happen to be on the other server.
+D. The server has more connections available.
+Correct Answer: C
+Sticky sessions can keep users on a particular server throughout their session. Latency routing would route to the load balancer, not the instances. Load balancers use a round-robin algorithm to balance.
+
+Question #166Topic 1
+Your website is under attack and a malicious party is stealing large amounts of data. You have default NACL rules. Stopping the attack is the ONLY priority in this case. Which two commands should you use? (Choose two.)
+A. aws ec2 delete-network-acl-entry -network-acl-id acl-5fb84d47 -ingress -rule-number 32768
+B. aws ec2 delete-network-acl-entry -network-acl-id acl-5fb84d47 -egress rule-number 100
+C. aws ec2 delete-network-acl-entry -network-acl-id acl-5fb84d47 -ingress rule-number 100
+D. aws ec2 create-network-acl-entry -network-acl-id acl-5fb84d47 -ingress rule-number 100 -protocol -1 -port-range From =-1,To =-1 -cidr-block 0.0.0.0/0 -rule- action deny
+Correct Answer: BC
+You should remove the default allow rules in your NACL and a default deny will be the only rule left for inbound and outbound. If you attempt to create a rule number 100, it will encounter an error as there is already a rule 100.
+Community vote distribution
+BC (100%)
+
+Question #167Topic 1
+You are a holdings company that buys many businesses and must integrate their VPCs into your network. You are constantly encountering networks with similar or overlapping subnets.
+What is the best way to manage this.
+A. BFD
+B. VRF
+C. A standby router for the overlapping subnets.
+D. A strict IP addressing policy that forces new companies to change the IP addresses of their VPCs.
+Correct Answer: B
+VRF, or Virtual Routing and Forwarding will allow you to have multiple routing tables on your router.
+
+Question #168Topic 1
+Your company has a high-availability hybrid solution that utilizes a two Direct Connect connections and a backup VPN connection. For some reason, traffic is preferring the VPN connection instead of the direct connection. You have prepended a longer AS_PATH on the VPN connection, but AWS still prefers it over the
+Direct Connect connections.
+What might you be able to do to fix this issue?
+A. Advertise a less specific prefix on the VPN.
+B. Remove the prepended AS_PATH.
+C. Reconfigure the VPN as a static VPN instead of dynamic.
+D. Increase the MED on the VPN.
+Correct Answer: A
+The only reason a VPN would be preferred over Direct Connect is if it has a more specific prefix. This was not discussed in the question but is assumed since it is the only criteria in the path selection process that supersedes Direct Connect.
+
+Question #169Topic 1
+You work for an international corporation that uses AWS. Due to regulations, you are now required to route the US and China to two different websites. You set up the records and now no other countries can access your site.
+Why is this?
+A. You forgot to set a default geolocation record.
+B. You probably broke your DNS.
+C. You must have a geolocation in place for every country.
+D. Geolocation features are only available in CloudFront.
+Correct Answer: A
+A default record is required for traffic that does not match a geolocation criteria to follow.
+
+Question #170Topic 1
+Your company is expanding its cloud infrastructure and moving many of its flat files and static assets to S3. You currently use a VPN to access your compute infrastructure, but you require more reliability for your static files as you are offloading all of your important data to AWS. What is your best course of action while keeping costs low?
+A. Create a Direct Connect connection using a Private VIF to access both compute and S3 resources.
+B. Create an S3 endpoint and create a route to the endpoint prefix list for your VPN to allow access to your S3 resources.
+C. Create two Direct Connect connections. Each connected to a Private VIF to ensure maximum resiliency.
+D. Create a Direct Connect connection using a Public VIF and route your VPN over the DX connection to your VPN endpoint.
+Correct Answer: D
+An S3 endpoint cannot be used with a VPN. A Private VIF cannot access S3 resources. A Public VIF with a VPN will ensure security for your compute resources and access to your S3 resources. Two DX connections are very expensive and a Private VIF still won't allow access to your S3 resources.
+
+Question #171Topic 1
+Your company currently has a LAG to AWS with two 1Gbps connections. What is the best way to increase throughput on this LAG?
+A. Add three 1Gbps connections to the LAG.
+B. Add one 10Gbps connections to the LAG.
+C. Configure your router to use "jumbo frames" with an MTU of 9001.
+D. Add two 1Gbps connections to the LAG.
+Correct Answer: D
+Add two 1Gbps connections to the LAG. DX does not support jumbo frames, a LAG only supports 4 connections, and adding a 10Gbps connection will be limited to the lowest speed of 1Gbps.
+
+Question #172Topic 1
+You have 4 Direct Connect connections from your datacenter. Site A advertises 172.16.0.0/16 AS 65000, Site B advertises 172.16.0.128/25 AS 65000 65000
+65000, Site C advertises 172.0.0.0/8 AS 65000 and Site D advertises 172.16.0.0/24 AS 65000. Which site will AWS choose to reach your network?
+A. Site A: 172.16.0.0/16 AS 65000
+B. Site B: 172.16.0.128/25 AS 65000 65000 65000
+C. Site C: 172.0.0.0/8 AS 65000
+D. Site D: 172.16.0.0/24 AS 65000
+Correct Answer: B
+172.16.0.128/25 AS 65000 65000 65000. The most specific prefix is always the first choice for BGP routing. Also, AWS will not accept an advertisement of a network less than /16.
+
+Question #173Topic 1
+You have a server that serves www, FTP, and mail. You need to access this server using www.yourname.com, ftp.yourname.com, and mail.yourname.com. You want to ensure an IP change results in the least number of other changes.
+What is the best solution?
+A. Create PTR records and point the IP address of the server back to www, ftp, and mail.
+B. Create an A record pointing to the server's IP address and create CNAME records for www, ftp, and mail and point those to the A record.
+C. Create an A record for www, ftp and mail, and point it to the ALIAS of the server.
+D. Create CNAME records for www, ftp, and mail and point those to the A record already provided to the instance by AWS.
+Correct Answer: B
+There is no ALIAS record for an EC2 instance, CNAME records pointed to the A record provided by AWS won't work because if the IP changes, the A record will change also. A PTR record is not appropriate here and cannot point to more than one record. Having three CNAME records and one A record will result in only having to change the A record if the IP changes.
+
+Question #174Topic 1
+Your company has a DX connection and you just added a new VPC and Private VIF to which you have connected to your DX link. You copied the settings from the other VPC to ensure it's the same. Once you connected the new VIF, you began seeing problems with connectivity to both VPCs.
+You checked to make sure you didn't use the same CIDR with each VPC, so what could be the problem?
+A. You used the same VLAN ID for both connections.
+B. You overloaded your DX circuit.
+C. Your MPLS provider does not allow traffic to two VPCs.
+D. You can only connect one VIF to a DX circuit.
+Correct Answer: A
+You can only have 1 instance of any VLAN ID.
+Community vote distribution
+A (80%)
+B (20%)
+
+Question #175Topic 1
+You need to find the public IP address of an instance that you're logged in to. What command would you use?
+A. curl ftp://169.254.169.254/latest/meta-data/public-ipv4
+B. scp localhost/latest/meta-data/public-ipv4
+C. curl http://127.0.0.1/latest/meta-data/public-ipv4
+D. curl http://169.254.169.254/latest/meta-data/public-ipv4
+Correct Answer: D
+curl http://169.254.169.254/latest/meta-data/public-ipv4
+
+Question #176Topic 1
+You have a hybrid infrastructure and you have configured your own DNS server on an EC2 instance in your 10.1.3.0/24 subnet. This subnet resides on the VPC
+10.1.0.0/16. You need your data center to be able to resolve Route 53 queries in your private hosted zone. What do you need to do to accomplish this?
+A. Disable the source/destination check flag for the DNS instance.
+B. Configure your DNS server to forward queries for the private hosted zone to 10.1.3.2.
+C. Configure your DNS server to forward queries for the private hosted zone to 10.1.0.2.
+D. Configure the VPC DHCP option set in the VPC to point to the EC2 DNS server.
+Correct Answer: C
+10.1.3.2 is not the DNS server. A DHCP option set is not needed since you are resolving AWS resources from on-premises not from a VPC and those instances are already configured to look to Route 53 DNS.
+
+Question #177Topic 1
+Your company has signed up to trial AWS WorkSpaces. You aren't sure you're going to keep it, but you want to try it out to see if it works for your organization of
+112 users. You need to deploy it with as little work and up-front expense as possible while still allowing access to your Active Directory for authentication.
+What two things should you do? (Choose two.)
+A. Create a VPN connection.
+B. Create an AD connector
+C. Setup AWS hosted Microsoft AD
+D. Create a Direct Connect connection to AWS.
+Correct Answer: AB
+A VPN connection and an AD connector will allow you to get up and running without having to migrate users, setup expensive equipment or pay for another directory service.
+
+Question #178Topic 1
+You have two autoscaling groups in your VPC. One deploys servers that host the index of your website and another that deploys servers that host the images for your website. What three steps would you take to ensure the right servers are used for the right purpose? (Choose three.)
+[1]
+B. Create two target groups and associate them with each autoscaling group.
+C. Configure a Classic Load Balancer
+D. Configure an Application Load Balancer
+Correct Answer: ABD
+A Classic Load Balancer does not support path-based routing rules
+
+Question #179Topic 1
+You have two VPCs that you've peered. You created a route for VPC A to get to an instance in VPC. You are unable to ping the instance. You have double checked your security groups and NACLs.
+Why might this be?
+A. You forgot to add a return route.
+B. ICMP is not supported over peering connections.
+C. You have to enable Source/Destination check in the VPCs.
+D. You have to configure the peering connection to allow two way traffic.
+Correct Answer: A
+Every route needs a return route for ICMP traffic.
+Community vote distribution
+A (100%)
+
+Question #180Topic 1
+You want to ensure you have the absolute best transmission rates inside and outside your VPC. You are concerned about the MTU settings. What is the best way to configure your T2 instances to ensure the best compatibility?
+A. Set all MTU to 1500 as that is the best way to ensure compatibility.
+B. Leave everything as is.
+C. Configure two ENIs, one for internal traffic and one for external traffic. Configure the external ENI with an MTU of 1500 and the internal ENI with an MTU of 9001.
+D. Set all MTU to 9001 as that is the best way to ensure the best speed. The packets will be fragmented if they have to be.
+Correct Answer: C
+By using two ENIs, you ensure the right MTU goes to the proper destination.
+Community vote distribution
+A (100%)
+
+Question #181Topic 1
+Which of the following does not configure Amazon CloudFront cache behaviors to forward cookies to an origin for web distributions?
+A. Origin server
+B. AWS CLI
+C. Amazon EMR
+D. Amazon S3
+Correct Answer: D
+Amazon S3 and some HTTP servers do not process cookies. Do not configure Amazon CloudFront cache behaviors to forward cookies to an origin that doesn't process cookies or you'll adversely affect cache ability and consequently performance.
+Reference:
+http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html
+
+Question #182Topic 1
+You received reports from clients in another time zone that they experienced an outage of your website several hours before you arrived at work. What two AWS services could prove crucial in figuring out what happened? (Choose two.)
+A. AWS Support
+B. CloudTrail
+C. CloudWatch
+D. Flow Logs
+Correct Answer: CD
+CloudTrail is for finding out who made a change. This could be a reason for the outage, but you need to see the metrics first. CloudWatch and Flow Logs are the best for this.
+Community vote distribution
+BC (100%)
+
+Question #183Topic 1
+You wish to access all European regions using your Direct Connect connection. How should you accomplish this?
+A. Peer VPCs in the different regions and connect DX to one of the regions to communicate with the other.
+B. Use a DX Gateway.
+C. Find the prefix list for the other region and add it to your route table.
+D. One DX connection will connect you to all regions.
+Correct Answer: B
+The DX Gateway will allow access to multiple regions.
+
+Question #184Topic 1
+You are using the CLI to assign multiple IP addresses to interfaces. The operation fails. What is the most likely reason?
+A. You cannot assign IP addresses in the CLI.
+B. You can only assign 5 IP addresses at a time through the CLI.
+C. One or more of the IP addresses could not be assigned.
+D. All of the IP addresses could not be assigned.
+Correct Answer: C
+One more of the IP addresses could not be assigned. It only takes one failed assignment for the entire operation to fail.
+
+Question #185Topic 1
+You are a network admin of a US company called Webby Widgets that is expanding to Europe. The company has a website that serves dynamic and static content.
+You have been instructed to ensure the European clients receive the least latency possible, no matter where in Europe they live, while still allowing the US clients to receive the same user experience and performance they have been accustomed to. You have also been instructed to ensure both countries use the same URL to access the site and keep costs low.
+What two things should you do? (Choose two.)
+A. Deploy three VPCs; one for the US, one for the EU, and one as a central VPC that hosts an Elastic Load Balancer that will distribute traffic between the US and EU VPCs.
+B. Create two A records: eu.webbywidgets.com that points to the EU resources and us.webbywidgets.com that points to the US resources.
+C. Use the Traffic Flow policy creator to create the perfect routing policy.
+D. Create a CloudFront distribution to serve the static content from an S3 bucket.
+Correct Answer: CD
+The Traffic Flow policy creator costs $50/mo. per policy and Elastic Load Balancers cannot distribute traffic between VPCs.
+
+Question #186Topic 1
+You are configuring a CloudFront distribution, and when you try to attach an SSL, you do not see your SSL listed. What is the most likely reason for this?
+A. You must configure an https record in Route 53 first.
+B. Sometimes, it won't show, and you need to retrieve the ARN for the SSL and enter it manually.
+C. You requested an SSL for the wrong region.
+D. You didn't wait 48 hours after approving the SSL.
+Correct Answer: C
+
+Question #187Topic 1
+Your company has decided to use AWS WorkSpaces for its hosted desktop solution. Your company has an existing AD of about 57,000 users, and you want to minimize authentication traffic from AWS to your datacenter. Your company has a lot of personnel changes, and it is crucial that these changes are reflected reliably.
+What two steps should you take? (Choose two.)
+A. Deploy Hosted AD in AWS.
+B. Deploy an AD Connector in AWS.
+C. Create a DX connection between the datacenter and AWS.
+D. Create a VPN between the datacenter AWS.
+Correct Answer: AC
+A VPN is not reliable enough, and an AD connector will cause too much authentication traffic.
+
+Question #188Topic 1
+You are configuring multiple Direct Connect links for your organization and need them to be in an HA Active/Passive configuration with extreme sensitivity to outages in order to encourage very quick failover times. You also need to be able to control which link is active.
+What two configuration changes should you implement? (Choose two.)
+A. MPLS
+B. BFD
+C. AS_PATH Prepending
+D. BGP
+Correct Answer: BC
+Bidirectional-Forwarding Detection will allow for faster failover times. AS_PATH Prepending will allow you to choose the default path. BGP is already implemented and MPLS does not matter.
+
+Question #189Topic 1
+What number does the binary number 10101000 correspond to?
+A. 168
+B. 128
+C. 192
+D. 160
+Correct Answer: A
+128 + 0 + 32 + 0 + 8 + 0 + 0 + 0 = 168
+
+Question #190Topic 1
+What number does the binary number 11000000 correspond to?
+A. 128
+B. 192
+C. 64
+D. 117
+Correct Answer: B
+128 + 64 + 0 + 0 + 0 + 0 + 0 + 0 = 192
+
+Question #191Topic 1
+What value in a packet dictates the priority of the packet in a QoS enabled network?
+A. BFD
+B. IPv6
+C. NAT
+D. DSCP
+Correct Answer: D
+The Differentiated Services Code Point value, or DSCP, is used to label packets on QoS enabled networks for prioritization.
+
+Question #192Topic 1
+What is the IPv6 subnet CIDR used by a VPC?
+A. /128
+B. /56
+C. /48
+D. /16
+Correct Answer: B
+A VPC will always use /56 as its CIDR
+Community vote distribution
+B (100%)
+
+Question #193Topic 1
+What is the name of the label applied to packets to allow routers to know where to forward in an MPLS network?
+A. BFD
+B. BGP
+C. FEC
+D. ABC
+Correct Answer: C
+Forward Equivalency Class is how routers know where to send packets.
+
+Question #194Topic 1
+What port and protocol is used by DNS?
+A. 80/TCP
+B. 22/TCP
+C. 80/TCP and UDP
+D. 53/TCP and UDP
+Correct Answer: D
+DNS uses port 53 and either TCP or UDP depending on what type of DNS message is being sent.
+
+Question #195Topic 1
+Which port range must be allowed through a NACL to ensure all return traffic is successful?
+A. 1024 גˆ’ 65,535
+B. 22
+C. 65,000 גˆ’ 65,535
+D. 80 גˆ’ 443
+Correct Answer: A
+1024 גˆ’ 65,535 is the full "ephemeral port" range.
+
+Question #196Topic 1
+To allow all traffic to access an instance in "Subnet 1" that uses "Security Group 1", what two options need to be configured? (Choose two.)
+A. NACL rule allowing 0.0.0.0/0 to access "Subnet 1"
+B. Security Group rule in "Security Group 1" that allows 0.0.0.0/0 inbound
+C. Security Group rule in "Security Group 1" that allows outbound traffic to 0.0.0.0/0
+D. NACL rule allowing 0.0.0.0/0 to access "Security Group 1"
+Correct Answer: AB
+You must allow traffic through the NACL and through the Security Group to access the instance. If there is not an Outbound allow setup in the NACL, you may need to set that, but an outbound rule for Security Group 1 is not necessary as security groups are stateful.
+Community vote distribution
+AB (100%)
+
+Question #197Topic 1
+You have created a custom VPC. What are two things you may need to do in order to SSH directly into your instance? (Choose two.)
+A. Enable SSH on the instance
+B. Attach a NAT Gateway
+C. Enable Public IP addresses
+D. Attach an Internet Gateway
+Correct Answer: CD
+Public IP addresses are not enabled by default in a custom VPC. An Internet Gateway is also required.
+
+Question #198Topic 1
+Which of these addresses cannot be given to an EC2 instance in your VPC?
+A. 10.0.0.157
+B. 10.0.0.3
+C. 10.0.0.4
+D. 10.0.0.253
+Correct Answer: B
+10.0.0.3 is reserved by AWS for future use.
+
+Question #199Topic 1
+Which ports must you allow for HTTP and HTTPS traffic?
+A. 25/465
+B. 21/22
+C. 3389/3306
+D. 80/443
+Correct Answer: D
+80 and 443 are the ports for HTTP and HTTPS, respectively.
+
+Question #200Topic 1
+If you have one VPC peered with two VPCs with overlapping CIDRs, which route will be more preferred?
+A. 10.1.0.0/16
+B. 10.0.0.0/8
+C. 10.1.1.5/32
+D. 10.1.1.0/24
+Correct Answer: C
+10.1.1.5/32. The most specific route is preferred.
+
