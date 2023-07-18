@@ -7,4 +7,7 @@
 7. git push //同步提交
 8. git switch feature/har-nativa //切换到分支
 9. git pull
+10. git branch –delete dev //删除本地分支
+11. git push origin –delete branch //删除远程分支
+12. git branch –delete –remotes //删除追踪分支
 
